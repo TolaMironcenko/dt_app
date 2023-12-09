@@ -18,6 +18,7 @@
 		AC1B8DB02B1268DA001F051F /* transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DAF2B1268DA001F051F /* transactions.swift */; };
 		AC9FA9AA2B14D1B7007CDCEC /* ChetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FA9A92B14D1B7007CDCEC /* ChetView.swift */; };
 		AC9FA9AC2B14D421007CDCEC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FA9AB2B14D421007CDCEC /* TransactionView.swift */; };
+		ACB825CA2B250827004F296B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ACB825C92B250827004F296B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AC1B8DAF2B1268DA001F051F /* transactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactions.swift; sourceTree = "<group>"; };
 		AC9FA9A92B14D1B7007CDCEC /* ChetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChetView.swift; sourceTree = "<group>"; };
 		AC9FA9AB2B14D421007CDCEC /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		ACB825C92B250827004F296B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				AC1B8DAB2B125E4F001F051F /* allChetsData.swift */,
 				AC1B8DAF2B1268DA001F051F /* transactions.swift */,
 				AC1B8DAD2B1268D2001F051F /* datetime.swift */,
+				ACB825C92B250827004F296B /* README.md */,
 				AC1B8DA72B125CA6001F051F /* chets.swift */,
 				AC1B8D9C2B124EEC001F051F /* Assets.xcassets */,
 				AC1B8DA12B124EEC001F051F /* dt_app.entitlements */,
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB825CA2B250827004F296B /* README.md in Resources */,
 				AC1B8DA02B124EEC001F051F /* Preview Assets.xcassets in Resources */,
 				AC1B8D9D2B124EEC001F051F /* Assets.xcassets in Resources */,
 			);
