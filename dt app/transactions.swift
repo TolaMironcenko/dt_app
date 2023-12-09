@@ -36,6 +36,6 @@ func getTransactions() -> [Transaction] {
     for transact in transactionsarr {
         transactions.append(Transaction(category: String(String(transact).components(separatedBy: ["|"])[2]), datetime: String(String(transact).components(separatedBy: ["|"])[1]), sum: String(String(transact).components(separatedBy: ["|"])[0])))
     }
-//    print(transactions)
+    //    print(transactions)
     return transactions.reversed()
 }

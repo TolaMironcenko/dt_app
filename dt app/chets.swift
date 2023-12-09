@@ -10,16 +10,16 @@ import Foundation
 // function for get url for all chets
 func getAllChets() -> [URL] {
     var all_chets: [URL]
-
+    
     let dataDirectory: URL = URL(string: getDataDirectory() + "data/")!
-
+    
     all_chets = try! FileManager.default.contentsOfDirectory(
         at: dataDirectory,
         includingPropertiesForKeys: nil
     )
     
     all_chets = all_chets.filter { $0.absoluteString.split(separator: "/")[$0.absoluteString.split(separator: "/").count-1] != ".DS_Store" }
-
+    
     return all_chets
 }
 
@@ -46,15 +46,15 @@ func deleteChet(chetName: String) {
 // function for get info about all chets or one chet
 func getInfo() {
     let all_chets: [URL] = getAllChets()
-
+    
     if (CommandLine.argc < 3) {
         for chet: URL in all_chets {
             var chetarr: [String.SubSequence] = chet.absoluteString.split(separator: "/")
             chetarr.removeFirst()
             let transactions = readFromFile(fileName: "/" + chetarr.joined(separator: "/") + "/transactions").split(separator: "\n")
-
+            
             print(chetarr[chetarr.count - 1] + " balance: " + readFromFile(fileName: "/" + chetarr.joined(separator: "/") + "/balance"))
-
+            
             if (transactions.count == 0) {
                 print("\nNo transactions.\n")
             } else {
@@ -70,7 +70,7 @@ func getInfo() {
         let transactions = readFromFile(fileName: getDataDirectory() + "data/" + CommandLine.arguments[2] + "/transactions").split(separator: "\n")
         
         let balance: String = readFromFile(fileName: getDataDirectory() + "data/" + CommandLine.arguments[2] + "/balance")
-
+        
         if (balance != "") {
             print(CommandLine.arguments[2] + " balance: " + balance)
             
@@ -93,7 +93,7 @@ func getInfo() {
 func getSum() {
     if (CommandLine.argc < 3) {
         let all_chets: [URL] = getAllChets()
-
+        
         for chet: URL in all_chets {
             var chetarr: [String.SubSequence] = chet.absoluteString.split(separator: "/")
             chetarr.removeFirst()
