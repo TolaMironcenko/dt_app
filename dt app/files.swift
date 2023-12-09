@@ -13,10 +13,10 @@ func readFromFile(fileName: String) -> String {
     do {
         line = try String(contentsOfFile: fileName)
     } catch _ as NSError {
-//        print("read file error: \(error.localizedDescription)")
+        //        print("read file error: \(error.localizedDescription)")
         return ""
     }
-
+    
     return line
 }
 
@@ -64,16 +64,16 @@ func checkDirectory(dir: String) -> Bool {
 
 func createDataDirectory() {
     do {
-//        print(getDocumentsDirectory())
+        //        print(getDocumentsDirectory())
         if (!checkDirectory(dir: getDocumentsDirectory() + "/.dt/data/main")) {
             try FileManager.default.createDirectory(atPath: getDocumentsDirectory() + "/.dt/data/main", withIntermediateDirectories: true, attributes: nil)
-    
+            
             if (readFromFile(fileName: getDataDirectory() + "data/main/" + "/balance") == "" || readFromFile(fileName: getDataDirectory() + "data/main/" + "/transactions") == "") {
                 writeInFile(fileName: getDataDirectory() + "data/main/" + "/balance", str: "0")
                 writeInFile(fileName: getDataDirectory() + "data/main/" + "/transactions", str: "")
             }
         }
-//        try FileManager.default.createDirectory(atPath: getDocumentsDirectory() + "/.dt/data", withIntermediateDirectories: true, attributes: nil)
+        //        try FileManager.default.createDirectory(atPath: getDocumentsDirectory() + "/.dt/data", withIntermediateDirectories: true, attributes: nil)
     } catch let error as NSError {
         print("Error creating directory: \(error.localizedDescription)")
     }
