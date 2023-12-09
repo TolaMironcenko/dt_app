@@ -11,6 +11,13 @@
 		AC1B8D9B2B124EEB001F051F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8D9A2B124EEB001F051F /* ContentView.swift */; };
 		AC1B8D9D2B124EEC001F051F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B8D9C2B124EEC001F051F /* Assets.xcassets */; };
 		AC1B8DA02B124EEC001F051F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B8D9F2B124EEC001F051F /* Preview Assets.xcassets */; };
+		AC1B8DA82B125CA6001F051F /* chets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DA72B125CA6001F051F /* chets.swift */; };
+		AC1B8DAA2B125CCC001F051F /* files.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DA92B125CCB001F051F /* files.swift */; };
+		AC1B8DAC2B125E4F001F051F /* allChetsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DAB2B125E4F001F051F /* allChetsData.swift */; };
+		AC1B8DAE2B1268D2001F051F /* datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DAD2B1268D2001F051F /* datetime.swift */; };
+		AC1B8DB02B1268DA001F051F /* transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B8DAF2B1268DA001F051F /* transactions.swift */; };
+		AC9FA9AA2B14D1B7007CDCEC /* ChetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FA9A92B14D1B7007CDCEC /* ChetView.swift */; };
+		AC9FA9AC2B14D421007CDCEC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FA9AB2B14D421007CDCEC /* TransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +27,13 @@
 		AC1B8D9C2B124EEC001F051F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC1B8D9F2B124EEC001F051F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC1B8DA12B124EEC001F051F /* dt_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dt_app.entitlements; sourceTree = "<group>"; };
+		AC1B8DA72B125CA6001F051F /* chets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chets.swift; sourceTree = "<group>"; };
+		AC1B8DA92B125CCB001F051F /* files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = files.swift; sourceTree = "<group>"; };
+		AC1B8DAB2B125E4F001F051F /* allChetsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allChetsData.swift; sourceTree = "<group>"; };
+		AC1B8DAD2B1268D2001F051F /* datetime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datetime.swift; sourceTree = "<group>"; };
+		AC1B8DAF2B1268DA001F051F /* transactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactions.swift; sourceTree = "<group>"; };
+		AC9FA9A92B14D1B7007CDCEC /* ChetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChetView.swift; sourceTree = "<group>"; };
+		AC9FA9AB2B14D421007CDCEC /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,13 @@
 			children = (
 				AC1B8D982B124EEB001F051F /* dt_appApp.swift */,
 				AC1B8D9A2B124EEB001F051F /* ContentView.swift */,
+				AC9FA9AB2B14D421007CDCEC /* TransactionView.swift */,
+				AC9FA9A92B14D1B7007CDCEC /* ChetView.swift */,
+				AC1B8DA92B125CCB001F051F /* files.swift */,
+				AC1B8DAB2B125E4F001F051F /* allChetsData.swift */,
+				AC1B8DAF2B1268DA001F051F /* transactions.swift */,
+				AC1B8DAD2B1268D2001F051F /* datetime.swift */,
+				AC1B8DA72B125CA6001F051F /* chets.swift */,
 				AC1B8D9C2B124EEC001F051F /* Assets.xcassets */,
 				AC1B8DA12B124EEC001F051F /* dt_app.entitlements */,
 				AC1B8D9E2B124EEC001F051F /* Preview Content */,
@@ -139,8 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9FA9AA2B14D1B7007CDCEC /* ChetView.swift in Sources */,
+				AC1B8DAC2B125E4F001F051F /* allChetsData.swift in Sources */,
+				AC1B8DA82B125CA6001F051F /* chets.swift in Sources */,
+				AC1B8DAE2B1268D2001F051F /* datetime.swift in Sources */,
+				AC1B8DAA2B125CCC001F051F /* files.swift in Sources */,
+				AC1B8DB02B1268DA001F051F /* transactions.swift in Sources */,
 				AC1B8D9B2B124EEB001F051F /* ContentView.swift in Sources */,
 				AC1B8D992B124EEB001F051F /* dt_appApp.swift in Sources */,
+				AC9FA9AC2B14D421007CDCEC /* TransactionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +307,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +335,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
