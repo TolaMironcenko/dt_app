@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ContentView: View {
     @State public var all_chets: [Сhet] = getAllChetsData()
@@ -16,16 +17,89 @@ struct ContentView: View {
     @State var sum: String = ""
     @State var newChetName: String = ""
     @State var tChetName: String = "main"
-    
+    @State var mainChet: Сhet = getMainChetData()
     
     var body: some View {
+        HStack (alignment: .center) {
+            VStack (alignment: .leading) {
+                Text("Balance")
+                    .font(.caption)
+                (Text("\(mainChet.balance)") + Text(Image(systemName: "rublesign")))
+                    .font(.title3)
+                    .fontWeight(.heavy)
+            }
+            Spacer()
+            Button(action: {
+                isPresentTransaction = true
+            }) {
+                Image(systemName: "plus")
+                    .font(.title)
+            }
+            .background(.blue)
+            .clipShape(Circle())
+            
+            .sheet(isPresented: $isPresentTransaction, content: {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Text("Create new transaction")
+                        Spacer()
+                        Button(action: {
+                            isPresentTransaction = false
+                        }) {
+                            Image(systemName: "xmark")
+                        }
+                        .buttonBorderShape(.circle)
+                        
+                    }
+                    VStack (alignment: .leading) {
+                        Text("Chet name")
+                            .font(.headline)
+                        TextField("chet", text: $tChetName)
+                            .textFieldStyle(.roundedBorder)
+                            .disableAutocorrection(true)
+                    }
+                    VStack (alignment: .leading) {
+                        Text("Sum")
+                            .font(.headline)
+                        TextField("sum", text: $sum)
+                            .textFieldStyle(.roundedBorder)
+                            .disableAutocorrection(true)
+                    }
+                    VStack (alignment: .leading) {
+                        Text("Category")
+                            .font(.headline)
+                        TextField("category", text: $category)
+                            .textFieldStyle(.roundedBorder)
+                            .disableAutocorrection(true)
+                    }
+                    Button(action: {
+                        withAnimation(.linear(duration: 0.2)) {
+                            createTransaction(transaction: Transaction(category: category, datetime: getDateTimeNow(), sum: sum), chetName: tChetName)
+                            all_chets = getAllChetsData()
+                            all_transactions = getTransactions()
+                        }
+                    }) {
+                        (Text(Image(systemName: "plus.circle")) + Text(" Add"))
+                            .font(.headline)
+                            .padding(5)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .frame(minWidth: 200)
+                .padding()
+            })
+        }
+        .padding(10)
+        .background(.gray)
         VStack {
             VStack(spacing: 0) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack (alignment: .center, spacing: 30) {
                         ForEach(all_chets) { chet in
                             VStack {
-                                Text("\(chet.name): \(chet.balance)")
+                                (Text("\(chet.name): \(chet.balance)") + Text(Image(systemName: "rublesign")))
                                     .padding()
                                 Button("Delete", action: {
                                     withAnimation(.linear(duration: 0.2)) {
@@ -92,95 +166,22 @@ struct ContentView: View {
                     }
                     .padding()
                 }
-                
-                Button(action: {
-                    isPresentTransaction = true
-                }) {
-                    Label("Create transaction", systemImage: "plus")
-                        .padding()
-                }
-                .cornerRadius(10)
-                .sheet(isPresented: $isPresentTransaction, content: {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Text("Create new transaction")
-                            Spacer()
-                            Button(action: {
-                                isPresentTransaction = false
-                            }) {
-                                Image(systemName: "xmark")
-                            }
-                            .buttonBorderShape(.circle)
-                            
-                        }
-                        VStack (alignment: .leading) {
-                            Text("Chet name")
-                                .font(.headline)
-                            TextField("chet", text: $tChetName)
-                                .textFieldStyle(.roundedBorder)
-                                .disableAutocorrection(true)
-                        }
-                        VStack (alignment: .leading) {
-                            Text("Sum")
-                                .font(.headline)
-                            TextField("sum", text: $sum)
-                                .textFieldStyle(.roundedBorder)
-                                .disableAutocorrection(true)
-                        }
-                        VStack (alignment: .leading) {
-                            Text("Category")
-                                .font(.headline)
-                            TextField("category", text: $category)
-                                .textFieldStyle(.roundedBorder)
-                                .disableAutocorrection(true)
-                        }
-                        Button(action: {
-                            withAnimation(.linear(duration: 0.2)) {
-                                createTransaction(transaction: Transaction(category: category, datetime: getDateTimeNow(), sum: sum), chetName: tChetName)
-                                all_chets = getAllChetsData()
-                                all_transactions = getTransactions()
-                            }
-                        }) {
-                            (Text(Image(systemName: "plus.circle")) + Text(" Add"))
-                                .font(.headline)
-                                .padding(5)
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                    .frame(minWidth: 200)
-                    .padding()
-                })
-                //                .alert("New transaction", isPresented: $isPresentTransaction, actions: {
-                //                    TextField("chet", text: $tChetName)
+                //                Chart {
+                //                    BarMark(x: .value("animals", "dog"), y: .value("number", 1))
                 //                        .cornerRadius(10)
-                //                        .padding()
-                //                    TextField("sum", text: $sum)
+                //                    BarMark(x: .value("animals", "cat"), y: .value("number", 228))
                 //                        .cornerRadius(10)
-                //                        .padding()
-                //                    TextField("category", text: $category)
-                //                        .cornerRadius(10)
-                //                        .padding()
-                //                    Button("Add", action: {
-                //                        withAnimation(.linear(duration: 0.2)) {
-                //                            createTransaction(transaction: Transaction(category: category, datetime: getDateTimeNow(), sum: sum), chetName: tChetName)
-                //                            all_chets = getAllChetsData()
-                //                            all_transactions = getTransactions()
-                //                        }
-                //                    })
-                //                    Button("Cancel", action: {
-                //                        isPresentTransaction = false
-                //                    })
-                //                }, message: {
-                //                    Text("Please enter transaction data.")
-                //                })
-                
+                //                }
+                //                .background(.gray)
+                //                .cornerRadius(10)
+                //                .padding()
+                Text("All transactions")
+                    .font(.headline)
                 ScrollView (.vertical, showsIndicators: false) {
                     if (all_transactions.isEmpty) {
                         Text("No transactions")
                     }
-                    VStack (alignment: .center, spacing: 10) {
+                    VStack (alignment: .center) {
                         ForEach(all_transactions) { transaction in
                             TransactionView(transaction: transaction)
                         }
@@ -189,6 +190,7 @@ struct ContentView: View {
                 }
                 .padding()
             }
+            .frame(minWidth: 400, minHeight: 400)
         }
     }
 }

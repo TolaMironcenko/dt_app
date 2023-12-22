@@ -21,7 +21,14 @@ func getAllChetsData() -> [Сhet] {
     for chet: URL in all_chets {
         var chetarr: [String.SubSequence] = chet.absoluteString.split(separator: "/")
         chetarr.removeFirst()
-        chetsarr.append(Сhet(name: String(chetarr[chetarr.count - 1]), balance: readFromFile(fileName: "/" + chetarr.joined(separator: "/") + "/balance")))
+        if (String(chetarr[chetarr.count - 1]) != "main") {
+            chetsarr.append(Сhet(name: String(chetarr[chetarr.count - 1]), balance: readFromFile(fileName: "/" + chetarr.joined(separator: "/") + "/balance")))
+        }
     }
     return chetsarr
+}
+
+func getMainChetData() -> Сhet {
+    let mainChet: Сhet = Сhet(name: "main", balance: readFromFile(fileName: getDataDirectory() + "data/main/balance"))
+    return mainChet
 }
