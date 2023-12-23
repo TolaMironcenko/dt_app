@@ -105,6 +105,7 @@ struct ContentView: View {
                                     withAnimation(.linear(duration: 0.2)) {
                                         deleteChet(chetName: chet.name)
                                         all_chets = getAllChetsData()
+                                        mainChet = getMainChetData()
                                     }
                                 })
                                 .padding()
@@ -148,6 +149,7 @@ struct ContentView: View {
                                         if (newChetName != "") {
                                             createChet(chetName: newChetName)
                                             all_chets = getAllChetsData()
+                                            mainChet = getMainChetData()
                                             newChetName = ""
                                         }
                                         isPresent = false
